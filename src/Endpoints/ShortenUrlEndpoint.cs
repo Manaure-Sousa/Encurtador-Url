@@ -1,6 +1,7 @@
 using EncurtadorUrl.src.Data;
 using EncurtadorUrl.src.Models;
 using EncurtadorUrl.src.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace EncurtadorUrl.src.Endpoints
 {
@@ -37,6 +38,18 @@ namespace EncurtadorUrl.src.Endpoints
                 await dbContext.SaveChangesAsync();
 
                 return Results.Ok(shortenedUrl.ShortUrl);
+            });
+
+            app.MapGet("{code}", async(string code, ApplicationDbContext dbContext) =>
+            {
+                var shortenedUrl = await dbContext.ShortenedUrls.SingleOrDefaultAsync(s => s.Code == code);
+
+                if (shortenedUrl == null)
+                {
+                    return Results.NotFound();
+                }
+
+                return Results.Redirect(shortenedUrl.LongUrl);
             });
         }
     }
