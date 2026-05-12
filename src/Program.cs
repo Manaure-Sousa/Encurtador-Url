@@ -10,7 +10,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite
 
 builder.Services.AddScoped<UrlShorteningService>();
 
+// Configurar CORS para aceitar requisições do frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+
+// Aplicar política de CORS
+app.UseCors("AllowFrontend");
 
 app.MapShortenUrlEndpoint();
 
