@@ -1,0 +1,13 @@
+@host = http://localhost:5066
+
+### Encurtar URL
+POST {{host}}/shorten
+Content-Type: application/json
+
+{
+    "url": "https://www.google.com"
+}
+
+### Acessar URL encurtada
+GET {{host}}/PtEhe3f
+
