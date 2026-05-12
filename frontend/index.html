@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de URL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Encurtador de URL</h1>
+                <p>Transforme links longos em URLs curtas e memoráveis</p>
+            </div>
+
+            <div class="content">
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="Cole sua URL aqui... https://exemplo.com/pagina-muito-longa"
+                        class="url-input"
+                    >
+                    <button id="shortenBtn" class="btn-shorten">Encurtar</button>
+                </div>
+
+                <div id="result" class="result" style="display: none;">
+                    <div class="result-label">Sua URL encurtada:</div>
+                    <div class="result-container">
+                        <input 
+                            type="text" 
+                            id="shortUrl" 
+                            class="result-input" 
+                            readonly
+                        >
+                        <button id="copyBtn" class="btn-copy">
+                            <span class="copy-icon">📋</span>
+                            <span class="copy-text">Copiar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <span>Gerando sua URL encurtada...</span>
+                </div>
+
+                <div id="error" class="error" style="display: none;">
+                    <span class="error-icon">⚠️</span>
+                    <span id="errorMessage">Algo deu errado</span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>🔗 Encurtador de URL - API moderna e rápida</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
