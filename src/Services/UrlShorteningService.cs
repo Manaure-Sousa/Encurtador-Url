@@ -58,5 +58,17 @@ namespace EncurtadorUrl.src.Services
             await dbContext.SaveChangesAsync();
             return Results.Ok(shortenedUrl.ShortUrl);
         }
+
+        public async Task<IResult> GetShortenedUrlByCode(string code)
+        {
+            var shortenedUrl = await dbContext.ShortenedUrls.SingleOrDefaultAsync(s => s.Code == code);
+
+            if (shortenedUrl == null)
+            {
+                return Results.NotFound();
+            }
+
+            return Results.Redirect(shortenedUrl.LongUrl);
+        }
     }
 }
