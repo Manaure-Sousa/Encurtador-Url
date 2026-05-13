@@ -11,12 +11,11 @@ namespace EncurtadorUrl.src.Endpoints
         {
             app.MapPost("shorten", async (
                 ShortenUrlRequest request,
-                UrlShorteningService urlShorteningService,
-                ApplicationDbContext dbContext,
-                HttpContext httpContext
+                HttpContext httpContext,
+                UrlShorteningService urlShorteningService
             ) =>
             {
-                await urlShorteningService.ShortenUrl(request, httpContext, dbContext);
+                return await urlShorteningService.ShortenUrl(request, httpContext);
             });
 
             app.MapGet("{code}", async(string code, ApplicationDbContext dbContext) =>

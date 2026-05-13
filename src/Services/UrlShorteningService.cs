@@ -34,8 +34,7 @@ namespace EncurtadorUrl.src.Services
 
         public async Task<IResult> ShortenUrl(
                 ShortenUrlRequest request,
-                HttpContext httpContext,
-                ApplicationDbContext dbContext)
+                HttpContext httpContext)
         {
             if (!Uri.TryCreate(request.Url, UriKind.Absolute, out _))
             {
