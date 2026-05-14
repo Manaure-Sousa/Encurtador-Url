@@ -252,6 +252,8 @@ ClientBin/
 orleans.codegen.cs
 
 *.db
+*.db-shm
+*.db-wal
 
 # RIA/Silverlight projects
 Generated_Code/
