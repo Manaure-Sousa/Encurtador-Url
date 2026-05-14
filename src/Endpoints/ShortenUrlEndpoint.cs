@@ -16,13 +16,13 @@ namespace EncurtadorUrl.src.Endpoints
             ) =>
             {
                 return await urlShorteningService.ShortenUrl(request, httpContext);
-            });
+            }).RequireRateLimiting("FixedWindowPolicy");
 
             app.MapGet("{code}", async (string code, ApplicationDbContext dbContext,
             UrlShorteningService urlShorteningService) =>
             {
                 return await urlShorteningService.GetShortenedUrlByCode(code);
-            });
+            }).RequireRateLimiting("FixedWindowPolicy");
         }
     }
 }
