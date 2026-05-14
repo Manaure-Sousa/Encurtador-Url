@@ -1,6 +1,8 @@
+using System.Threading.RateLimiting;
 using EncurtadorUrl.src.Data;
 using EncurtadorUrl.src.Endpoints;
 using EncurtadorUrl.src.Services;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,18 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+   options.RejectionStatusCode = StatusCodes.Status429TooManyRequests; 
+   options.AddFixedWindowLimiter("FixedWindowPolicy", opt =>
+   {
+       opt.Window = TimeSpan.FromSeconds(10);
+       opt.PermitLimit = 5;
+       opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+       opt.QueueLimit = 2;
+   });
+});
+
 var app = builder.Build();
 
 // Aplicar política de CORS
@@ -29,5 +43,7 @@ app.UseCors("AllowFrontend");
 app.MapShortenUrlEndpoint();
 
 app.UseHttpsRedirection();
+
+app.UseRateLimiter();
 
 app.Run();
