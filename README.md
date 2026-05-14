@@ -6,32 +6,31 @@ Um projeto completo de encurtamento de URLs com **Backend** (ASP.NET Core) e **F
 
 ```
 EncurtadorUrl/
-├── src/                          # Backend (.NET)
+├── src/                         
 │   ├── Endpoints/
-│   │   └── ShortenUrlEndpoint.cs # Rotas: POST /shorten, GET /{code}
+│   │   └── ShortenUrlEndpoint.cs 
 │   ├── Models/
-│   │   ├── ShortenUrlRequest.cs  # DTO de entrada
-│   │   └── ShortenedUrl.cs       # Entidade do banco
+│   │   ├── ShortenUrlRequest.cs  
+│   │   └── ShortenedUrl.cs       
 │   ├── Services/
-│   │   └── UrlShorteningService.cs # Geração de código único
+│   │   └── UrlShorteningService.cs 
 │   ├── Data/
-│   │   └── ApplicationDbContext.cs # Context do EF Core + SQLite
+│   │   └── ApplicationDbContext.cs 
 │   ├── Settings/
-│   │   └── ShortLinkSettings.cs  # Configurações (alphabet, length)
-│   └── Program.cs                # Configuração e inicialização
+│   │   └── ShortLinkSettings.cs  
+│   └── Program.cs                
+├── frontend/                     
+│   ├── index.html               
+│   ├── styles.css               
+│   ├── script.js                
+│   └── README.md                
 │
-├── frontend/                     # Frontend (HTML/CSS/JS)
-│   ├── index.html               # Interface
-│   ├── styles.css               # Design moderno (gradiente, responsivo)
-│   ├── script.js                # Lógica de integração com API
-│   └── README.md                # Documentação do frontend
-│
-├── EncurtadorUrl.csproj         # Configuração do projeto .NET
-├── EncurtadorUrl.sln            # Solução Visual Studio
-├── appsettings.json             # Configurações da API
-├── encurtador.db                # Banco de dados SQLite
-├── requests.http                # Exemplos de requisições HTTP
-└── README.md                    # Este arquivo
+├── EncurtadorUrl.csproj         
+├── EncurtadorUrl.sln            
+├── appsettings.json             
+├── encurtador.db                
+├── requests.http                
+└── README.md                    
 ```
 
 ## 🚀 Quick Start
@@ -172,11 +171,12 @@ mNoPqRs
 - Entity Framework Core 10.0.6
 - SQLite
 - CORS habilitado
+- Rate Limit
 
 ### Frontend
-- HTML5 semântico
-- CSS3 moderno (Flexbox, Grid, Gradients)
-- Vanilla JavaScript (ES6+)
+- HTML5 
+- CSS3 
+- JavaScript (ES6+)
 - Zero dependências
 
 ---
@@ -201,7 +201,6 @@ curl -L http://localhost:5066/AbC1dEf
 ## 📈 Próximas Features
 
 - [ ] Histórico de URLs encurtadas
-- [ ] Limite de requisições (rate limiting)
 - [ ] Load balance
 - [ ] Analytics de cliques
 
