@@ -16,7 +16,7 @@ namespace EncurtadorUrl.src.Endpoints
             ) =>
             {
                 return await urlShorteningService.ShortenUrl(request, httpContext);
-            }).RequireRateLimiting("FixedWindowPolicy");
+            }).RequireAuthorization().RequireRateLimiting("FixedWindowPolicy");
 
             app.MapGet("{code}", async (string code, ApplicationDbContext dbContext,
             UrlShorteningService urlShorteningService) =>
