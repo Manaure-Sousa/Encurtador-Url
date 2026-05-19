@@ -1,13 +1,33 @@
 @host = http://localhost:5066
+@token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjZiNjA0Y2VhLTc0NDEtNDU4ZC05Y2MwLWVmNzRkMDNlNDdhZCIsImVtYWlsIjoidGVzdGVAZ21haWwuY29tIiwianRpIjoiMDM4Y2RjOTktZDg2My00NzcxLWEzODUtYTEzNjA4YjAyMmRiIiwibmJmIjoxNzc5MTUwNjcwLCJleHAiOjE3NzkxNTA5NzAsImlhdCI6MTc3OTE1MDY3MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDY2IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDY2In0.7GWNPixeHzLe-7e9ufZ6X7ulAIGTRufQXhUgCtIacB4"
 
 ### Encurtar URL
 POST {{host}}/shorten
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-    "url": "https://www.google.com"
+    "url": "https://www.google.comauth"
 }
 
 ### Acessar URL encurtada
 GET {{host}}/PtEhe3f
+
+#### Registrar usuário
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "Email": "teste@gmail.com",
+    "Password": "testpassword"
+}
+
+### Login de usuário
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "Email": "teste@gmail.com",
+    "Password": "testpassword"
+}
 
