@@ -1,5 +1,5 @@
 @host = http://localhost:5066
-@token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjZiNjA0Y2VhLTc0NDEtNDU4ZC05Y2MwLWVmNzRkMDNlNDdhZCIsImVtYWlsIjoidGVzdGVAZ21haWwuY29tIiwianRpIjoiMDM4Y2RjOTktZDg2My00NzcxLWEzODUtYTEzNjA4YjAyMmRiIiwibmJmIjoxNzc5MTUwNjcwLCJleHAiOjE3NzkxNTA5NzAsImlhdCI6MTc3OTE1MDY3MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDY2IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDY2In0.7GWNPixeHzLe-7e9ufZ6X7ulAIGTRufQXhUgCtIacB4"
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjgzYzkwYzliLTUwZDItNDk3Yi1hYzUzLTQwNjg0NTAzNzQyNCIsImVtYWlsIjoibWFuYXVyZUBnbWFpbC5jb20iLCJqdGkiOiJhYmJjYmFhOS0yYmUzLTRkMzYtYjU5ZC0wYWJkMzVlMzEzMGUiLCJuYmYiOjE3Nzk2ODU5MDYsImV4cCI6MTc3OTY4NjIwNiwiaWF0IjoxNzc5Njg1OTA2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwNjYiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwNjYifQ.kHSEhOjVeXgHBM-j6Et8v8zysqf2ca91WWyRE655nJc
 
 ### Encurtar URL
 POST {{host}}/shorten
@@ -7,19 +7,19 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "url": "https://www.google.comauth"
+    "url": "https://www.manaureteste.com"
 }
 
 ### Acessar URL encurtada
-GET {{host}}/PtEhe3f
+GET {{host}}/bxK9sWW
 
 #### Registrar usuário
 POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-    "Email": "teste@gmail.com",
-    "Password": "testpassword"
+    "Email": "manaure@gmail.com",
+    "Password": "senhaNova"
 }
 
 ### Login de usuário
@@ -27,7 +27,7 @@ POST {{host}}/auth/login
 Content-Type: application/json
 
 {
-    "Email": "teste@gmail.com",
-    "Password": "testpassword"
+    "Email": "manaure@gmail.com",
+    "Password": "senhaNova"
 }
 
