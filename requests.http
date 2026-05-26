@@ -1,13 +1,33 @@
 @host = http://localhost:5066
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjgzYzkwYzliLTUwZDItNDk3Yi1hYzUzLTQwNjg0NTAzNzQyNCIsImVtYWlsIjoibWFuYXVyZUBnbWFpbC5jb20iLCJqdGkiOiJhYmJjYmFhOS0yYmUzLTRkMzYtYjU5ZC0wYWJkMzVlMzEzMGUiLCJuYmYiOjE3Nzk2ODU5MDYsImV4cCI6MTc3OTY4NjIwNiwiaWF0IjoxNzc5Njg1OTA2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwNjYiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwNjYifQ.kHSEhOjVeXgHBM-j6Et8v8zysqf2ca91WWyRE655nJc
 
 ### Encurtar URL
 POST {{host}}/shorten
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-    "url": "https://www.google.com"
+    "url": "https://www.manaureteste.com"
 }
 
 ### Acessar URL encurtada
-GET {{host}}/PtEhe3f
+GET {{host}}/bxK9sWW
+
+#### Registrar usuário
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "Email": "manaure@gmail.com",
+    "Password": "senhaNova"
+}
+
+### Login de usuário
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "Email": "manaure@gmail.com",
+    "Password": "senhaNova"
+}
 

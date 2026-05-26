@@ -41,6 +41,12 @@ namespace EncurtadorUrl.src.Services
                 return Results.BadRequest("URL inválida.");
             }
 
+            var userId = httpContext.User.FindFirst("Id")?.Value;
+            if(string.IsNullOrEmpty(userId))
+            {
+                return Results.Unauthorized();
+            }
+
             var code = await GenerateUniqueCode();
 
             var httpRequest = httpContext.Request;
@@ -51,7 +57,8 @@ namespace EncurtadorUrl.src.Services
                 LongUrl = request.Url,
                 Code = code,
                 ShortUrl = $"{httpRequest.Scheme}://{httpRequest.Host}/{code}",
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                UserId = Guid.Parse(userId)
             };
 
             dbContext.ShortenedUrls.Add(shortenedUrl);
